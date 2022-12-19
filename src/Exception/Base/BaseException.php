@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Ixnode\NamingConventions\Exception\Base;
+namespace Ixnode\PhpNamingConventions\Exception\Base;
 
 use Exception;
 

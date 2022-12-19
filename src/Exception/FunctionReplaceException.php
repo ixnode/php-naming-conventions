@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Ixnode\NamingConventions\Exception;
+namespace Ixnode\PhpNamingConventions\Exception;
 
-use Ixnode\NamingConventions\Exception\Base\BaseFunctionException;
+use Ixnode\PhpNamingConventions\Exception\Base\BaseFunctionException;
 
 /**
  * Class FunctionReplaceException

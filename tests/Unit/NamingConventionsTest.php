@@ -11,10 +11,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Test\Ixnode\NamingConventions;
+namespace Ixnode\PhpNamingConventions\Tests;
 
 use Exception;
-use Ixnode\NamingConventions\NamingConventions;
+use Ixnode\PhpNamingConventions\NamingConventions;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,6 +23,7 @@ use PHPUnit\Framework\TestCase;
  * @author Björn Hempel <bjoern@hempel.li>
  * @version 0.1.0 (2022-12-18)
  * @since 0.1.0 (2022-12-18) First version.
+ * @link NamingConventions
  */
 final class NamingConventionsTest extends TestCase
 {

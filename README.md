@@ -31,11 +31,25 @@ php-naming-conventions 0.1.0 (12-18-2022 01:17:26) - Björn Hempel <bjoern@hempe
 ## Usage
 
 ```php
-use Ixnode\NamingConventions\NamingConventions;
+use Ixnode\PhpNamingConventions\NamingConventions;
 ```
 
 ```php
 $pascalCase = (new NamingConventions($rawString))->getPascalCase();
+```
+
+## Development
+
+```bash
+git clone git@github.com:ixnode/php-naming-conventions.git && cd php-naming-conventions
+```
+
+```bash
+composer install
+```
+
+```bash
+composer test
 ```
 
 ## License

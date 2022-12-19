@@ -13,8 +13,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "Ixnode\\NamingConventions\\": "src",
-      "Test\\Ixnode\\NamingConventions\\": "tests"
+      "Ixnode\\PhpNamingConventions\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ixnode\\PhpNamingConventions\\Tests\\": "tests/"
     }
   },
   "require": {
