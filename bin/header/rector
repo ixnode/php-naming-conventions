@@ -13,6 +13,11 @@ DESCRIPTION="$2"
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
+if command -v jq &> /dev/null; then
+    VERSION=$(composer show rector/rector --format=json | jq -r '.versions[0]')
+    HEADER="$HEADER $VERSION"
+fi
+
 eval "$SCRIPT_DIR/global \"$HEADER\" \"$COMMAND\" \"$DESCRIPTION\""
 RETURN_CODE=$?
 

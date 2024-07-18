@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Ixnode\PhpNamingConventions\Tests;
+namespace Ixnode\PhpNamingConventions\Tests\Unit;
 
 use Exception;
 use Ixnode\PhpNamingConventions\NamingConventions;
@@ -21,7 +21,8 @@ use PHPUnit\Framework\TestCase;
  * Class NamingConventionsTest
  *
  * @author Björn Hempel <bjoern@hempel.li>
- * @version 0.1.0 (2022-12-18)
+ * @version 0.1.1 (2024-07-18)
+ * @since 0.1.1 (2024-07-18) Fix namespace.
  * @since 0.1.0 (2022-12-18) First version.
  * @link NamingConventions
  */

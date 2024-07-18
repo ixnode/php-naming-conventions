@@ -44,7 +44,7 @@
       "@phpmnd:all"
     ],
 
-    "phpmd": "bin/header/phpmnd 'phpmd src,tests text cleancode,codesize,controversial,design,naming,unusedcode' 'all'",
+    "phpmd": "bin/header/phpmd 'phpmd src,tests text cleancode,codesize,controversial,design,naming,unusedcode' 'all'",
 
     "phpunit": "bin/header/phpunit 'phpunit tests' 'Unit'",
 
@@ -52,16 +52,23 @@
     "phpstan:xdebug": "bin/header/phpstan 'phpstan analyse --level max --memory-limit 512M --xdebug src tests' 'run'",
     "phpstan": "@phpstan:default",
 
-    "phpcs:check": "bin/header/phpcs 'php-cs-fixer --dry-run --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix src 2>/dev/null && php-cs-fixer --dry-run --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix tests 2>/dev/null' 'all'",
-    "phpcs:fix": "bin/header/phpcs 'php-cs-fixer --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix src 2>/dev/null && php-cs-fixer --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix tests 2>/dev/null' 'all'",
-    "phpcs": "@phpcs:check",
+    "phpcs:check:src": "bin/header/phpcs 'PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --dry-run --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix src 2>/dev/null' 'src'",
+    "phpcs:check:tests": "bin/header/phpcs 'PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --dry-run --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix tests 2>/dev/null' 'tests'",
+    "phpcs:check:all": "bin/header/phpcs 'PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --dry-run --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix src 2>/dev/null && PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --dry-run --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose fix tests 2>/dev/null' 'all'",
+    "phpcs": [
+      "@phpcs:check:all"
+    ],
+    "phpcs:fix:src": "bin/header/phpcs 'PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose -v fix src 2>/dev/null' 'src'",
+    "phpcs:fix:tests": "bin/header/phpcs 'PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose -v fix tests 2>/dev/null' 'tests'",
+    "phpcs:fix:all": "bin/header/phpcs 'PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose -v fix src 2>/dev/null && PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --using-cache=no --rules=@PSR12 --rules=no_unused_imports --verbose -v fix tests 2>/dev/null' 'all'",
 
     "rector": "bin/header/rector 'rector process --dry-run --clear-cache --memory-limit=512M' 'check, force'",
 
     ".test:basic": [
       "@ixno:header",
       "@phpunit",
-      "@phpstan"
+      "@phpstan",
+      "@phpcs"
     ],
     "test:basic": [
       "composer .test:basic && bin/header/success || bin/header/error"
@@ -71,6 +78,7 @@
       "@phpmnd",
       "@phpunit",
       "@phpstan",
+      "@phpcs",
       "@phpmd"
     ],
     "test:most": [
@@ -81,6 +89,7 @@
       "@phpmnd",
       "@phpunit",
       "@phpstan",
+      "@phpcs",
       "@phpmd"
     ],
     "test:all": [
@@ -91,6 +100,7 @@
       "@phpmnd",
       "@phpunit",
       "@phpstan",
+      "@phpcs",
       "@phpmd",
       "@rector"
     ],
