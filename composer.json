@@ -1,4 +1,5 @@
 {
+  "version": "0.1.2",
   "name": "ixnode/php-naming-conventions",
   "description": "PHP Naming Conventions",
   "type": "library",
